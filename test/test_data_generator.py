@@ -1,6 +1,6 @@
 import unittest
-from twistedsort import data_generator
-from twistedsort import constants
+from arraysearch import data_generator
+from arraysearch import constants
 
 
 class DataGeneratorTest(unittest.TestCase):

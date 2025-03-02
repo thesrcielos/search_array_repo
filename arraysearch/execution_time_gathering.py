@@ -1,8 +1,9 @@
 import time
 
-from twistedsort import algorithms
-from twistedsort import constants
-from twistedsort import data_generator
+import random
+from arraysearch import algorithms
+from arraysearch import constants
+from arraysearch import data_generator
 
 
 def take_execution_time(minimum_size, maximum_size, step, samples_by_size):
@@ -28,9 +29,9 @@ def take_times(size, samples_by_size):
         samples.append(data_generator.get_random_list(size))
 
     return [
-        take_time_for_algorithm(samples, algorithms.split_and_sorted_approach),
-        take_time_for_algorithm(samples, algorithms.no_split_and_sorted_approach),
-        take_time_for_algorithm(samples, algorithms.full_sort_and_iterate_approach),
+        take_time_for_algorithm(samples, algorithms.linear_search),
+        take_time_for_algorithm(samples, algorithms.binary_search),
+        take_time_for_algorithm(samples, algorithms.ternary_search),
     ]
 
 
@@ -39,12 +40,13 @@ def take_times(size, samples_by_size):
 """
 
 
-def take_time_for_algorithm(samples_array, sorting_approach):
+def take_time_for_algorithm(samples_array, searching_approach):
     times = []
 
     for sample in samples_array:
+        elem = sample[random.randint(0, len(sample))]
         start_time = time.time()
-        sorting_approach(sample.copy())
+        searching_approach(sample.copy(), elem)
         times.append(int(constants.TIME_MULTIPLIER * (time.time() - start_time)))
 
     times.sort()
