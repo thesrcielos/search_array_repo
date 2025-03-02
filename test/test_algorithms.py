@@ -20,20 +20,20 @@ class AlgorithmsTests(unittest.TestCase):
         for i in range(len(test_cases)):
             array, elem = test_cases[i]
             result = algorithms.linear_search(array, elem)
-            self.assertTrue(result, expected_results[i])
+            self.assertEqual(result, expected_results[i])
 
     def test_binary_search(self):
          for i in range(len(test_cases)):
             array, elem = test_cases[i]
             result = algorithms.binary_search(array, elem)
-            self.assertTrue(result, expected_results[i])
+            self.assertEqual(result, expected_results[i])
 
 
     def test_ternary_search(self):
          for i in range(len(test_cases)):
             array, elem = test_cases[i]
             result = algorithms.ternary_search(array, elem)
-            self.assertTrue(result, expected_results[i])
+            self.assertEqual(result, expected_results[i])
 
 if __name__ == "__main__":
     unittest.main()

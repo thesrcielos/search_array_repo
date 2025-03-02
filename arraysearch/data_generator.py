@@ -3,6 +3,8 @@ from arraysearch import constants
 
 
 def get_random_list(size, interval=constants.INTERVAL_VALUE):
+    if size == 0:
+        return []
     answer = [1]
     while len(answer) < size:
         answer.append(answer[-1] + random.randint(0, interval))
